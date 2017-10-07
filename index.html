@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt_br" ng-app="localStorageApp">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="John Doe">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Local Storage</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"/>
+	<script src="lib/jquery-3.2.1.min.js"></script>
+	<script src="lib/datatable/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="lib/datatable/1.10.12/js/dataTables.buttons.min.js"></script>
+	<script src="lib/datatable/1.10.12/js/buttons.print.min.js"></script>
+
+	<script type="text/javascript" src="lib/datatable/dataTables.tableTools.min.js"></script>
+	<script type="text/javascript" src="lib/datatable/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="lib/datatable/jszip.min.js"></script>
+	<script type="text/javascript" src="lib/datatable/pdfmake.min.js"></script>
+	<script type="text/javascript" src="lib/datatable/vfs_fonts.js"></script>
+	<script type="text/javascript" src="lib/datatable/buttons.html5.min.js"></script>	
+
+	<link rel="stylesheet" type="text/css" href="lib/datatable/1.10.12/css/jquery.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/datatable/1.10.12/css/buttons.dataTables.min.css"/>
+	
+	<script src="lib/angularjs/angular.min.js"></script>
+	<script src="lib/angularjs/angular-datatables.min.js"></script>
+	<script src="lib/bootstrap/bootstrap.js"></script>	
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-cloak ng-controller="localStorageCtrl" ng-init="carregaLocalStorage()">
+		<div class="form-group col-md-6" >
+			<h2 for="titulo">{{app}}</h2><br/>
+			<div class="form-group">
+				<label for="lAssunto">
+					<b>
+						Nome
+					</b>
+				</label>
+				<input class="form-control" name="nome" ng-model="dados.nome" required type="text"/>
+			</div>
+			<div class="form-group">
+				<label for="lTexto">
+					<b>
+						Idade
+					</b>
+				</label>
+				<input class="form-control" name="idade" ng-model="dados.idade" type="number"/>
+			</div>
+			<!-- 
+				BOTÕES
+			-->
+			<button class="btn btn-warning pull-left" ng-click="limpar(dados)" type="button">
+				Limpar tudo
+			</button>
+			<button class="btn btn-default pull-right" ng-click="gravaInfo(dados)" type="button">
+				Enviar
+			</button>
+		</div>
+		<div class="col-md-6">
+			<h2 for="titulo">Dados: {{lsDados.length}} itens</h2><br/>
+			
+			<table class="table table-striped" id="tb-Dados" style="width:100% !important;">
+				<thead>
+					<tr>
+						<th>
+							Nome
+						</th>
+						<th>
+							Idade
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
